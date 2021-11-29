@@ -18,29 +18,25 @@ const FormikPostUploader = () => {
     const [thumbnailUrl, setThumbnailUrl] = useState(PLACEHOLDER_IMG);
 
     return (
-        <View>
+        <Formik
+            initialValues={{caption: '', imageUrl: ''}}
+            onSubmit={(values) => console.log(values)}
+            validationSchema={uploadPostSchema}
+        >
 
-        </View>
-        // <Formik
-        //     initialValues={{caption: '', imageUrl: ''}}
-        //     onSubmit={(values) => console.log(values)}
-        //     validationSchema={uploadPostSchema}
-        // >
-        //
-        //     {/*{({handleBlur, handleChange, handleSubmit, values, errors, isValid}) => (*/}
-        //     {/*    <>*/}
-        //     {/*        <View>*/}
-        //     {/*            <Image />*/}
-        //     {/*        </View>*/}
-        //
-        //     {/*        <TextInput*/}
-        //     {/*            placeholder="Hello"*/}
-        //     {/*        />*/}
-        //     {/*    </>*/}
-        //     {/*    )}*/}
-        //
-        // {/*    caption and url    */}
-        // </Formik>
+            {({handleBlur, handleChange, handleSubmit, values, errors, isValid}) => (
+                <>
+                    <View>
+                        <Image />
+                    </View>
+
+                    <TextInput
+                        placeholder="Hello"
+                    />
+                </>
+                )}
+
+        </Formik>
     );
 };
 
