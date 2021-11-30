@@ -5,6 +5,7 @@ import 'core-js/es6/set';
 import 'core-js/es6/map';
 import * as yup from 'yup';
 import {Formik} from "formik";
+import {Divider} from "react-native-elements";
 
 const uploadPostSchema = yup.object().shape({
    imageUrl: yup.string().url().required('A URL is required'),
@@ -29,19 +30,23 @@ const FormikPostUploader = () => {
                     <View style={{margin: 20, justifyContent: 'space-between', flexDirection: 'row'}}>
                         <Image  source={{uri: PLACEHOLDER_IMG}} style={{width: 100, height: 100}}/>
 
-                    <TextInput
-                        placeholder="Write a caption..."
-                        placeholderTextColor={'gray'}
-                        multiline={true}
-                        style={{
-                            color: 'white',
-                            fontSize: 20,
-                        }}
-                        onChangeText={handleChange('caption')}
-                        onBlur={handleBlur('caption')}
-                        value={values.caption}
-                    />
+                    <View style={{flex: 1, marginLeft: 12}}>
+                        <TextInput
+                            placeholder="Write a caption..."
+                            placeholderTextColor={'gray'}
+                            multiline={true}
+                            style={{
+                                color: 'white',
+                                fontSize: 20,
+                            }}
+                            onChangeText={handleChange('caption')}
+                            onBlur={handleBlur('caption')}
+                            value={values.caption}
+                        />
+                    </View>
 
+                    </View>
+                    <Divider width={0.2} orientation={'vertical'} />
                     <TextInput
                         placeholder="Enter image url..."
                         placeholderTextColor={'gray'}
@@ -53,7 +58,6 @@ const FormikPostUploader = () => {
                         onBlur={handleBlur('imageUrl')}
                         value={values.imageUrl}
                     />
-                    </View>
                 </>
                 )}
 
