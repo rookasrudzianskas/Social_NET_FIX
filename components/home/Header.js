@@ -1,11 +1,14 @@
 import React from 'react';
 import {Text, View, StyleSheet, Image, TouchableOpacity} from 'react-native';
+import {useNavigation} from "@react-navigation/native";
 
 // Header ADD Icon >> https://img.icons8.com/fluency-systems-regular/60/ffffff/plus-2-math.png
 // Header Heart Icon >> https://img.icons8.com/fluency-systems-regular/60/ffffff/like--v1.png
 // Header Messages Icon >> https://img.icons8.com/fluency-systems-regular/60/ffffff/facebook-messenger.png
 
 const Header = () => {
+    const navigation = useNavigation();
+
     return (
         <View style={styles.container}>
             <TouchableOpacity activeOpacity={0.5}>
@@ -14,7 +17,7 @@ const Header = () => {
 
 
             <View style={styles.iconContainer}>
-                <TouchableOpacity activeOpacity={0.5}>
+                <TouchableOpacity activeOpacity={0.5} onPress={() => navigation.navigate('NewPostScreen')}>
                     <Image source={{ uri: 'https://img.icons8.com/fluency-systems-regular/60/ffffff/plus-2-math.png'}} style={styles.icon} />
                 </TouchableOpacity>
 
