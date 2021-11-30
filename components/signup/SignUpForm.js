@@ -40,7 +40,8 @@ const SignUpForm = () => {
             <Formik
                 initialValues={{email: '', username: '', password: ''}}
                 onSubmit={(values, actions) => {
-                    console.log(values);
+                    // console.log(values);
+                    onSignUp(values.email, values.password);
                     // actions.setSubmitting(false);
                 }}
                 validationSchema={SignUpFormSchema}
