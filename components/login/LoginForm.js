@@ -15,7 +15,7 @@ const LoginForm = () => {
                     autoFocus={true}
                 />
             </View>
-                <View>
+                <View style={styles.inputField}>
                     <TextInput
                         placeholder="Password"
                         placeholderTextColor={'#444'}
@@ -35,10 +35,14 @@ const LoginForm = () => {
 export default LoginForm;
 
 const styles = StyleSheet.create({
+    wrapper: {
+      marginTop: 80,
+    },
     inputField: {
-        marginBottom: 20,
-        padding: 5,
-        borderBottomWidth: 1,
-        borderBottomColor: '#444'
+        marginBottom: 10,
+        padding: 12,
+        borderWidth: 1,
+        borderColor: '#8d8d8d',
+        borderRadius: 4,
     }
 });
