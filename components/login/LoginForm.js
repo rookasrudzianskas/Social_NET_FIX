@@ -34,6 +34,9 @@ const LoginForm = () => {
                           keyboardType="email-address"
                           textContentType={'emailAddress'}
                           autoFocus={true}
+                          onChangeText={handleChange('email')}
+                          onBlur={handleBlur('email')}
+                          value={values.email}
                       />
                   </View>
                   <View style={styles.inputField}>
