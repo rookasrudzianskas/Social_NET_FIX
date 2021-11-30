@@ -45,6 +45,24 @@ const SignUpForm = () => {
                                 value={values.email}
                             />
                         </View>
+
+                        <View style={[styles.inputField,
+                            {borderColor: values.email.length < 1 || Validator.validate(values.email) ? "#ccc" : 'red'}
+                        ]}>
+                            <TextInput
+                                placeholder="Username"
+                                placeholderTextColor={'#444'}
+                                autoCapitalize={'none'}
+                                autoCorrect={false}
+                                keyboardType="email-address"
+                                textContentType={'emailAddress'}
+                                autoFocus={true}
+                                onChangeText={handleChange('email')}
+                                onBlur={handleBlur('email')}
+                                value={values.email}
+                            />
+                        </View>
+
                         <View style={[styles.inputField,
                             {borderColor: 1 > values.password.length || values.password.length >= 6 ? "#ccc" : 'red'}
                         ]}>
