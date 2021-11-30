@@ -21,7 +21,7 @@ const Header = () => (
         <Text style={styles.headerText}>
             Add New Post 🚀
         </Text>
-        {/*<Text></Text>*/}
+        <Text></Text>
     </View>
 )
 
