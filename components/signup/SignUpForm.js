@@ -26,13 +26,13 @@ const SignUpForm = () => {
     const onSignUp = async (email, password, username) => {
         try {
             const authUser = await firebase.auth().createUserWithEmailAndPassword(email, password);
-            navigation.navigate('HomeScreen');
             await db.collection('users').add({
                 owner_uid: authUser.user.uid,
                 username: username,
                 email: authUser.user.email,
                 profile_picture: await getRandomProfilePicture(),
             });
+            navigation.navigate('HomeScreen');
         } catch (error) {
             Alert.alert('🔥 My Lord...', error.message + '\n\n... What would you like to do next 👀',[
                 {
@@ -53,7 +53,7 @@ const SignUpForm = () => {
                 initialValues={{email: '', username: '', password: ''}}
                 onSubmit={(values, actions) => {
                     // console.log(values);
-                    onSignUp(values.email, values.username, values.password);
+                    onSignUp(values.email, values.password,  values.username);
                     // actions.setSubmitting(false);
                 }}
                 validationSchema={SignUpFormSchema}
