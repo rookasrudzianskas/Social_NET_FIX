@@ -1,4 +1,5 @@
 import {initializeApp} from 'firebase/app';
+import firebase from "firebase/compat";
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -11,6 +12,6 @@ const firebaseConfig = {
     measurementId: "G-DCM72YR60V"
 };
 
-const app = initializeApp(firebaseConfig);
+!firebase.apps.length ? firebase.initializeApp(firebaseConfig) : firebase.app();
 
 

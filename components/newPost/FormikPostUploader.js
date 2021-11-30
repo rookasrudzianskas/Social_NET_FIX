@@ -1,8 +1,5 @@
 import React, {useState} from 'react';
 import {Text, View, StyleSheet, Image, TextInput, Button, Alert} from 'react-native';
-import 'core-js/es6/promise';
-import 'core-js/es6/set';
-import 'core-js/es6/map';
 import * as yup from 'yup';
 import {Formik} from "formik";
 import {Divider} from "react-native-elements";
