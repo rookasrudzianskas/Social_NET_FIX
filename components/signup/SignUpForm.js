@@ -8,9 +8,9 @@ import {useNavigation} from "@react-navigation/native";
 
 const SignUpForm = () => {
 
-    const LoginFormSchema = yup.object().shape({
+    const SignUpFormSchema = yup.object().shape({
         email: yup.string().required('An email is required.').email(),
-        username: yup.string().required.min(2, 'Username must be at least 2 characters.'),
+        username: yup.string().required().min(2, 'Username must be at least 2 characters.'),
         password: yup.string().required().min(6, 'You password must be at least 6 characters.')
     });
 
@@ -24,7 +24,7 @@ const SignUpForm = () => {
                     console.log(values);
                     // actions.setSubmitting(false);
                 }}
-                validationSchema={LoginFormSchema}
+                validationSchema={SignUpFormSchema}
                 validateOnMount={true}
             >
                 {({handleChange, handleSubmit, handleBlur, values, isValid}) => (
