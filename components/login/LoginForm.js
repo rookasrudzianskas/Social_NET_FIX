@@ -57,7 +57,7 @@ const LoginForm = () => {
                   <View style={{alignItems: 'flex-end', marginBottom: 30}}>
                       <Text style={{color: '#6BB0F5'}}>Forgot Password?</Text>
                   </View>
-                  <TouchableOpacity activeOpacity={0.5} style={styles.button} onPress={() => {
+                  <TouchableOpacity activeOpacity={0.5} style={styles.button(isValid)}  onPress={() => {
                       handleSubmit();
                   }}>
                       <Text style={{fontWeight: '600', color: 'white'}}>Login</Text>
