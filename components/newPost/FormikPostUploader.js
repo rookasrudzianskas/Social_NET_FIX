@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Text, View, StyleSheet, Image, TextInput} from 'react-native';
+import {Text, View, StyleSheet, Image, TextInput, Button} from 'react-native';
 import 'core-js/es6/promise';
 import 'core-js/es6/set';
 import 'core-js/es6/map';
@@ -61,6 +61,8 @@ const FormikPostUploader = () => {
                     {errors.imageUrl && (
                         <Text style={{color: 'red'}}>{errors.imageUrl}</Text>
                     )}
+
+                    <Button onPress={handleSubmit} title={'Share'} disabled={!isValid} />
                 </>
                 )}
 
