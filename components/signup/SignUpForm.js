@@ -19,7 +19,7 @@ const SignUpForm = () => {
     return (
         <View style={styles.wrapper}>
             <Formik
-                initialValues={{email: '', password: ''}}
+                initialValues={{email: '', username: '', password: ''}}
                 onSubmit={(values, actions) => {
                     console.log(values);
                     // actions.setSubmitting(false);
@@ -33,7 +33,7 @@ const SignUpForm = () => {
                             {borderColor: values.email.length < 1 || Validator.validate(values.email) ? "#ccc" : 'red'}
                         ]}>
                             <TextInput
-                                placeholder="Phone number, username or email"
+                                placeholder="Phone Number, Email"
                                 placeholderTextColor={'#444'}
                                 autoCapitalize={'none'}
                                 autoCorrect={false}
@@ -47,7 +47,7 @@ const SignUpForm = () => {
                         </View>
 
                         <View style={[styles.inputField,
-                            {borderColor: values.email.length < 1 || Validator.validate(values.email) ? "#ccc" : 'red'}
+                            {borderColor: 1 > values.username.length || values.username.length ? "#ccc" : 'red'}
                         ]}>
                             <TextInput
                                 placeholder="Username"
@@ -57,9 +57,9 @@ const SignUpForm = () => {
                                 keyboardType="email-address"
                                 textContentType={'emailAddress'}
                                 autoFocus={true}
-                                onChangeText={handleChange('email')}
-                                onBlur={handleBlur('email')}
-                                value={values.email}
+                                onChangeText={handleChange('username')}
+                                onBlur={handleBlur('username')}
+                                value={values.username}
                             />
                         </View>
 
