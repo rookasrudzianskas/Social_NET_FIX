@@ -19,19 +19,19 @@ const SignUpForm = () => {
 
     const getRandomProfilePicture = async () => {
         const response = fetch('https://randomuser.me/api/');
-        const data = await response.json();
+        const data = response.json();
         return data.results[0].picture.large;
     }
 
     const onSignUp = async (email, password, username) => {
         try {
             const authUser = await firebase.auth().createUserWithEmailAndPassword(email, password);
-            db.collection('users').add({
+            await db.collection('users').add({
                 owner_uid: authUser.user.uid,
                 username: username,
                 email: authUser.user.email,
-                profile_picture: await getRandomProfilePicture(),
-            });
+                profile_picture: 'https://randomuser.me/api/portraits/men/91.jpg'
+            }).then(() => console.log("Rokas"));
             navigation.navigate('HomeScreen');
         } catch (error) {
             Alert.alert('🔥 My Lord...', error.message + '\n\n... What would you like to do next 👀',[
