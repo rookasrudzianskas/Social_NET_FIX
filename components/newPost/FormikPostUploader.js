@@ -27,17 +27,32 @@ const FormikPostUploader = () => {
             {({handleBlur, handleChange, handleSubmit, values, errors, isValid}) => (
                 <>
                     <View>
-                        <Image  source={{uri: PLACEHOLDER_IMG}} style={{}}/>
+                        <Image  source={{uri: PLACEHOLDER_IMG}} style={{width: 100, height: 100}}/>
                     </View>
 
                     <TextInput
                         placeholder="Write a caption..."
                         placeholderTextColor={'gray'}
+                        multiline={true}
+                        style={{
+                            color: 'white',
+                            fontSize: 20,
+                        }}
+                        onChangeText={handleChange('caption')}
+                        onBlur={handleBlur('caption')}
+                        value={values.caption}
                     />
 
                     <TextInput
                         placeholder="Enter image url..."
                         placeholderTextColor={'gray'}
+                        style={{
+                            color: 'white',
+                            fontSize: 20,
+                        }}
+                        onChangeText={handleChange('imageUrl')}
+                        onBlur={handleBlur('imageUrl')}
+                        value={values.imageUrl}
                     />
                 </>
                 )}
