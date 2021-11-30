@@ -17,10 +17,9 @@ const SignUpForm = () => {
 
     const navigation = useNavigation();
 
-    const getRandomProfilePicture = async () => {
-        const response = fetch('https://randomuser.me/api/');
-        const data = response.json();
-        return data.results[0].picture.large;
+    const getRandomProfilePicture = () => {
+        const randomNumber = Math.floor(Math.random() * 10) + 1;
+        return `https://randomuser.me/api/portraits/`;
     }
 
     const onSignUp = async (email, password, username) => {
