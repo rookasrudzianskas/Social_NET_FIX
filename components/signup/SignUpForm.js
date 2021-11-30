@@ -26,7 +26,7 @@ const SignUpForm = () => {
     const onSignUp = async (email, password, username) => {
         try {
             const authUser = await firebase.auth().createUserWithEmailAndPassword(email, password);
-            await db.collection('users').add({
+            db.collection('users').add({
                 owner_uid: authUser.user.uid,
                 username: username,
                 email: authUser.user.email,
