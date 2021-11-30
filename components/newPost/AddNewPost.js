@@ -8,7 +8,7 @@ const AddNewPost = () => {
             <Header />
             {/*    Post form    */}
             {/*  formik  */}
-            {/*<FormikPostUploader />*/}
+            <FormikPostUploader />
         </View>
     );
 };

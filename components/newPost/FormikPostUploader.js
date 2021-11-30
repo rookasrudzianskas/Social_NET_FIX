@@ -31,7 +31,13 @@ const FormikPostUploader = () => {
                     </View>
 
                     <TextInput
-                        placeholder="Hello"
+                        placeholder="Write a caption..."
+                        placeholderTextColor={'gray'}
+                    />
+
+                    <TextInput
+                        placeholder="Enter image url..."
+                        placeholderTextColor={'gray'}
                     />
                 </>
                 )}
