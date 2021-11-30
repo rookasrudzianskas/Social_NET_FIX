@@ -27,7 +27,7 @@ const FormikPostUploader = () => {
             {({handleBlur, handleChange, handleSubmit, values, errors, isValid}) => (
                 <>
                     <View>
-                        <Image />
+                        <Image  source={{uri: PLACEHOLDER_IMG}} style={{}}/>
                     </View>
 
                     <TextInput
