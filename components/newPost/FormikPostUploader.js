@@ -48,7 +48,7 @@ const FormikPostUploader = () => {
                         placeholderTextColor={'gray'}
                         style={{
                             color: 'white',
-                            fontSize: 20,
+                            fontSize: 18,
                         }}
                         onChangeText={handleChange('imageUrl')}
                         onBlur={handleBlur('imageUrl')}
