@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, View, StyleSheet, TextInput, Button, TouchableOpacity} from 'react-native';
+import {Text, View, StyleSheet, TextInput, Button, TouchableOpacity, Alert} from 'react-native';
 import Pressable from "react-native/Libraries/Components/Pressable/Pressable";
 import Validator from 'email-validator';
 import * as yup from 'yup';
@@ -21,7 +21,7 @@ const LoginForm = () => {
             await firebase.auth().signInWithEmailAndPassword(email, password);
             navigation.navigate('HomeScreen');
         } catch (error) {
-            console.log(error);
+            Alert.alert(`Error: ${error.message}`);
         }
     }
 
