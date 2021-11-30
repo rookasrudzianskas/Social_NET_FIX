@@ -58,6 +58,9 @@ const FormikPostUploader = () => {
                         onBlur={handleBlur('imageUrl')}
                         value={values.imageUrl}
                     />
+                    {errors.imageUrl && (
+                        <Text style={{color: 'red'}}>{errors.imageUrl}</Text>
+                    )}
                 </>
                 )}
 
