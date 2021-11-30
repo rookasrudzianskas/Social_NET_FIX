@@ -26,9 +26,8 @@ const FormikPostUploader = () => {
 
             {({handleBlur, handleChange, handleSubmit, values, errors, isValid}) => (
                 <>
-                    <View>
+                    <View style={{margin: 20, justifyContent: 'space-between', flexDirection: 'row'}}>
                         <Image  source={{uri: PLACEHOLDER_IMG}} style={{width: 100, height: 100}}/>
-                    </View>
 
                     <TextInput
                         placeholder="Write a caption..."
@@ -54,6 +53,7 @@ const FormikPostUploader = () => {
                         onBlur={handleBlur('imageUrl')}
                         value={values.imageUrl}
                     />
+                    </View>
                 </>
                 )}
 
