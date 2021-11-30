@@ -4,6 +4,7 @@ import Pressable from "react-native/Libraries/Components/Pressable/Pressable";
 import Validator from 'email-validator';
 import * as yup from 'yup';
 import {Formik} from 'formik';
+import {useNavigation} from "@react-navigation/native";
 
 const LoginForm = () => {
 
@@ -11,6 +12,8 @@ const LoginForm = () => {
         email: yup.string().required('An email is required.').email(),
         password: yup.string().required().min(6, 'You password must be at least 6 characters.')
     });
+
+    const navigation = useNavigation();
 
     return (
         <View style={styles.wrapper}>
@@ -69,7 +72,7 @@ const LoginForm = () => {
 
                   <View style={{marginTop: 10,}}>
                       <Text style={{color: '#343434'}}>Don't have an account?</Text>
-                      <TouchableOpacity activeOpacity={0.5}>
+                      <TouchableOpacity activeOpacity={0.5} onPress={() => navigation.navigate('SignUpScreen')}>
                           <Text style={{color: '#6BB0F5'}}>Sign up</Text>
                       </TouchableOpacity>
                   </View>
