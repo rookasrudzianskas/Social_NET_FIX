@@ -49,6 +49,9 @@ const LoginForm = () => {
                           textContentType={'password'}
                           autoFocus={false}
                           secureTextEntry={true}
+                          onChangeText={handleChange('password')}
+                          onBlur={handleBlur('password')}
+                          value={values.password}
                       />
                   </View>
                   <View style={{alignItems: 'flex-end', marginBottom: 30}}>
