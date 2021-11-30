@@ -19,7 +19,7 @@ const Header = () => (
             <Image source={{uri: 'https://img.icons8.com/ios-glyphs/90/ffffff/back.png'}} style={{width: 30, height: 30}} />
         </TouchableOpacity>
         <Text style={styles.headerText}>
-            New Post 🚀
+            Add New Post 🚀
         </Text>
         {/*<Text></Text>*/}
     </View>
