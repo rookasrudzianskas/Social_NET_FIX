@@ -1,6 +1,9 @@
 import React from 'react';
 import {Text, View, StyleSheet, TextInput, Button, TouchableOpacity} from 'react-native';
 import Pressable from "react-native/Libraries/Components/Pressable/Pressable";
+import Validator from 'email-validator';
+import * as yup from 'yup';
+import {Formik} from 'formik';
 
 const LoginForm = () => {
     return (
