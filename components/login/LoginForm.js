@@ -5,6 +5,7 @@ import Validator from 'email-validator';
 import * as yup from 'yup';
 import {Formik} from 'formik';
 import {useNavigation} from "@react-navigation/native";
+import firebase from "firebase/compat";
 
 const LoginForm = () => {
 
@@ -14,6 +15,15 @@ const LoginForm = () => {
     });
 
     const navigation = useNavigation();
+
+    const onLogin = async (email, password) => {
+        try {
+            await firebase.auth().signInWithEmailAndPassword(email, password);
+            navigation.navigate('HomeScreen');
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     return (
         <View style={styles.wrapper}>
