@@ -3,7 +3,7 @@ import {Text, View, StyleSheet, TextInput, Button} from 'react-native';
 
 const LoginForm = () => {
     return (
-        <View>
+        <View style={styles.wrapper}>
             <View style={styles.inputField}>
                 <TextInput
                     placeholder="Phone number, username or email"
