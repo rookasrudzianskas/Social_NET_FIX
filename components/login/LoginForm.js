@@ -5,7 +5,7 @@ import Validator from 'email-validator';
 import * as yup from 'yup';
 import {Formik} from 'formik';
 import {useNavigation} from "@react-navigation/native";
-import firebase from "firebase/compat";
+import firebase from "../../firebase";
 
 const LoginForm = () => {
 
