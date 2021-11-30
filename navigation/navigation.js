@@ -9,7 +9,7 @@ import HomeScreen from "../screens/HomeScreen";
 
 const Stack = createNativeStackNavigator();
 
-const Navigation = () => {
+const SignedInStack = () => {
     return (
         <NavigationContainer>
             <Stack.Navigator>
@@ -19,4 +19,4 @@ const Navigation = () => {
     );
 }
 
-export default Navigation;
+export default SignedInStack;
