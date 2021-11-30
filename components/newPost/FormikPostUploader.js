@@ -21,7 +21,10 @@ const FormikPostUploader = () => {
     return (
         <Formik
             initialValues={{caption: '', imageUrl: ''}}
-            onSubmit={(values) => console.log(values)}
+            onSubmit={(values) => {
+                console.log(values);
+
+            }}
             validationSchema={uploadPostSchema}
             validateOnMount={true}
         >
