@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
-import {Text, View, StyleSheet, Image, TextInput, Button} from 'react-native';
+import {Text, View, StyleSheet, Image, TextInput, Button, Alert} from 'react-native';
 import 'core-js/es6/promise';
 import 'core-js/es6/set';
 import 'core-js/es6/map';
 import * as yup from 'yup';
 import {Formik} from "formik";
 import {Divider} from "react-native-elements";
+import {useNavigation} from "@react-navigation/native";
 
 const uploadPostSchema = yup.object().shape({
    imageUrl: yup.string().url().required('A URL is required'),
@@ -17,12 +18,15 @@ const PLACEHOLDER_IMG = 'https://i.imgur.com/DiEdUYn.jpeg';
 
 const FormikPostUploader = () => {
     const [thumbnailUrl, setThumbnailUrl] = useState(PLACEHOLDER_IMG);
+    const navigation = useNavigation();
 
     return (
         <Formik
             initialValues={{caption: '', imageUrl: ''}}
             onSubmit={(values) => {
                 console.log(values);
+                Alert.alert('Success', 'Your post has been uploaded.');
+                navigation.goBack();
 
             }}
             validationSchema={uploadPostSchema}
