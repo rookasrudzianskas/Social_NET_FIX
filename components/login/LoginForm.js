@@ -21,7 +21,16 @@ const LoginForm = () => {
             await firebase.auth().signInWithEmailAndPassword(email, password);
             navigation.navigate('HomeScreen');
         } catch (error) {
-            Alert.alert(`Error: ${error.message}`);
+            Alert.alert('🔥 My Lord...', error.message + '\n\n... What would you like to do next 👀',[
+                {
+                    text: 'OK',
+                    onPress: () => console.log('OK'),
+                    style: 'cancel'
+                },
+                {
+                    text: 'Sign up', onPress: () => navigation.navigate('SignUpScreen')
+                }
+                ]);
         }
     }
 

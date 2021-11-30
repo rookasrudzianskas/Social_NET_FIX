@@ -1,10 +1,11 @@
 import React from 'react';
-import {Text, View, StyleSheet, TextInput, Button, TouchableOpacity} from 'react-native';
+import {Text, View, StyleSheet, TextInput, Button, TouchableOpacity, Alert} from 'react-native';
 import Pressable from "react-native/Libraries/Components/Pressable/Pressable";
 import Validator from 'email-validator';
 import * as yup from 'yup';
 import {Formik} from 'formik';
 import {useNavigation} from "@react-navigation/native";
+import firebase from "../../firebase";
 
 const SignUpForm = () => {
 
@@ -15,6 +16,24 @@ const SignUpForm = () => {
     });
 
     const navigation = useNavigation();
+
+    const onSignUp = async (email, password) => {
+        try {
+            await firebase.auth().signInWithEmailAndPassword(email, password);
+            navigation.navigate('HomeScreen');
+        } catch (error) {
+            Alert.alert('🔥 My Lord...', error.message + '\n\n... What would you like to do next 👀',[
+                {
+                    text: 'OK',
+                    onPress: () => console.log('OK'),
+                    style: 'cancel'
+                },
+                {
+                    text: 'Log in', onPress: () => navigation.navigate('LoginScreen')
+                }
+            ]);
+        }
+    }
 
     return (
         <View style={styles.wrapper}>
