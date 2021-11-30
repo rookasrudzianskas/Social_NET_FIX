@@ -23,6 +23,7 @@ const FormikPostUploader = () => {
             initialValues={{caption: '', imageUrl: ''}}
             onSubmit={(values) => console.log(values)}
             validationSchema={uploadPostSchema}
+            validateOnMount={true}
         >
 
             {({handleBlur, handleChange, handleSubmit, values, errors, isValid}) => (
