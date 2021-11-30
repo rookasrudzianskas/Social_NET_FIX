@@ -17,6 +17,12 @@ const SignUpForm = () => {
 
     const navigation = useNavigation();
 
+    const getRandomProfilePicture = async () => {
+        const response = fetch('https://randomuser.me/api/');
+        const data = await response.json();
+        return data.results[0].picture.large;
+    }
+
     const onSignUp = async (email, password) => {
         try {
             await firebase.auth().createUserWithEmailAndPassword(email, password);
