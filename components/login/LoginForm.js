@@ -57,7 +57,9 @@ const LoginForm = () => {
                   <View style={{alignItems: 'flex-end', marginBottom: 30}}>
                       <Text style={{color: '#6BB0F5'}}>Forgot Password?</Text>
                   </View>
-                  <TouchableOpacity activeOpacity={0.5} style={styles.button} onPress={() => console.log('Yoou have clicked me 👉 🔥')}>
+                  <TouchableOpacity activeOpacity={0.5} style={styles.button} onPress={() => {
+                      handleSubmit();
+                  }}>
                       <Text style={{fontWeight: '600', color: 'white'}}>Login</Text>
                   </TouchableOpacity>
 
@@ -87,11 +89,11 @@ const styles = StyleSheet.create({
         borderColor: '#bdbdbd',
         borderRadius: 4,
     },
-    button: {
-        backgroundColor: '#0096f6',
+    button: isValid => ({
+        backgroundColor: isValid ? '#0096f6' : '#9acaf7',
         alignItems: 'center',
         justifyContent: 'center',
         minHeight: 42,
         borderRadius: 4,
-    },
+    }),
 });
