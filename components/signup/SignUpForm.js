@@ -19,7 +19,7 @@ const SignUpForm = () => {
 
     const onSignUp = async (email, password) => {
         try {
-            await firebase.auth().signInWithEmailAndPassword(email, password);
+            await firebase.auth().createUserWithEmailAndPassword(email, password);
             navigation.navigate('HomeScreen');
         } catch (error) {
             Alert.alert('🔥 My Lord...', error.message + '\n\n... What would you like to do next 👀',[
