@@ -25,7 +25,9 @@ const LoginForm = () => {
             >
                 {({handleChange, handleSubmit, handleBlur, values, isValid}) => (
               <>
-                  <View style={styles.inputField}>
+                  <View style={[styles.inputField,
+                      {borderColor: values.email.length < 1 || Validator.validate(values.email) ? "#ccc" : 'red'}
+                  ]}>
                       <TextInput
                           placeholder="Phone number, username or email"
                           placeholderTextColor={'#444'}
@@ -39,7 +41,9 @@ const LoginForm = () => {
                           value={values.email}
                       />
                   </View>
-                  <View style={styles.inputField}>
+                  <View style={[styles.inputField,
+                  {borderColor: 1 > values.password.length || values.password.length >= 6 ? "#ccc" : 'red'}
+                  ]}>
                       <TextInput
                           placeholder="Password"
                           placeholderTextColor={'#444'}
