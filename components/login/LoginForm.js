@@ -31,9 +31,16 @@ const LoginForm = () => {
             <View style={{alignItems: 'flex-end', marginBottom: 30}}>
                 <Text style={{color: '#6BB0F5'}}>Forgot Password?</Text>
             </View>
-            <TouchableOpacity activeOpacity={0.5} style={styles.button}>
+            <TouchableOpacity activeOpacity={0.5} style={styles.button} onPress={() => console.log('Yoou have clicked me 👉 🔥')}>
                 <Text style={{fontWeight: '600', color: 'white'}}>Login</Text>
             </TouchableOpacity>
+
+            <View style={{marginTop: 10,}}>
+                <Text style={{color: '#343434'}}>Don't have an account?</Text>
+                <TouchableOpacity activeOpacity={0.5}>
+                    <Text style={{color: '#6BB0F5'}}>Sign up</Text>
+                </TouchableOpacity>
+            </View>
         </View>
     );
 };
