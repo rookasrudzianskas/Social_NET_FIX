@@ -6,6 +6,12 @@ import * as yup from 'yup';
 import {Formik} from 'formik';
 
 const LoginForm = () => {
+
+    const LoginFormSchema = yup.object().shape({
+        email: yup.string().required('An email is required.').email(),
+        password: yup.string().required().min(6, 'You password must be at least 6 characters.')
+    });
+
     return (
         <View style={styles.wrapper}>
             <View style={styles.inputField}>
