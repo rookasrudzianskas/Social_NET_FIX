@@ -6,7 +6,7 @@ import { FontAwesome5 } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 import Pressable from "react-native/Libraries/Components/Pressable/Pressable";
-import {firebase} from "../../firebase";
+import {db, firebase} from "../../firebase";
 
 //<AntDesign name="like2" size={24} color="black" />
 //<FontAwesome5 name="comment-alt" size={24} color="black" />
@@ -21,7 +21,12 @@ const Post = ({post}) => {
             firebase.auth().currentUser.email,
         );
 
+        db.collection('users').doc(post.owner_email).collection('posts').doc(post.id).update({
+            likes_by_users: currentLikeStatus
+                ? firebase.firestore.FieldValue.arrayUnion(firebase.auth().currentUser.email)
+                : firebase.firestore.FieldValue.arrayRemove(firebase.auth().currentUser.email),
 
+        });
 
     }
 
