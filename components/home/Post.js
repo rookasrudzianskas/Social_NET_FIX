@@ -26,6 +26,10 @@ const Post = ({post}) => {
                 ? firebase.firestore.FieldValue.arrayUnion(firebase.auth().currentUser.email)
                 : firebase.firestore.FieldValue.arrayRemove(firebase.auth().currentUser.email),
 
+        }).then(() => {
+            console.log("Like updated");
+        }).catch(err => {
+            console.log(err);
         });
 
     }
