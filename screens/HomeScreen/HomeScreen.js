@@ -45,4 +45,6 @@ const styles = StyleSheet.create({
         backgroundColor: 'black',
         // flex: 1,
     }
-})
+});
+
+//DONE
