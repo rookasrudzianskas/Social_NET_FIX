@@ -24,11 +24,16 @@ const FormikPostUploader = () => {
     const getUsername = () => {
         const user = firebase.auth().currentUser;
         const unsubscribe = db.collection('users').where('owner_uid', '==', user.uid).limit(1).onSnapshot(snapshot => snapshot.docs.map(doc => {
-            setCurrentLoggedInUser(doc.data().username);
+            setCurrentLoggedInUser({
+                username: doc.data().username,
+                profile_picture: doc.data().profile_picture,
+            });
         }));
+        return unsubscribe;
     }
 
     useEffect(() => {
+        getUsername();
 
     }, []);
 
