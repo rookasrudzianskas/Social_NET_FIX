@@ -25,7 +25,7 @@ const HomeScreen = () => {
             <Header />
             <Stories />
             <ScrollView showsVerticalScrollIndicator={false} style={{marginBottom: 140}}>
-                {POSTS.map((post, index) => {
+                {posts.map((post, index) => {
                     return <Post key={index} post={post} />
                 })}
             <View>
