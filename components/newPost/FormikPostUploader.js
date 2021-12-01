@@ -37,6 +37,20 @@ const FormikPostUploader = () => {
 
     }, []);
 
+    const uploadPostToFirebase = (imageUrl, caption) => {
+        return db.collection('users').doc(firebase.auth().currentUser.email).collection('posts').add({
+            imageUrl: imageUrl,
+            user: currentLoggedInUser.username,
+            profile_picture: currentLoggedInUser.profile_picture,
+            owner_uid: firebase.auth().currentUser.uid,
+            caption: caption,
+            createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+            likes: 0,
+            likes_by_users: [],
+            comments: [],
+        });
+    }
+
     return (
         <Formik
             initialValues={{caption: '', imageUrl: ''}}
