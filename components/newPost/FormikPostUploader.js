@@ -5,6 +5,8 @@ import {Formik} from "formik";
 import {Divider} from "react-native-elements";
 import {useNavigation} from "@react-navigation/native";
 import validUrl from 'valid-url';
+import {useEffect} from "react";
+import {db, firebase} from "../../firebase";
 
 const uploadPostSchema = yup.object().shape({
    imageUrl: yup.string().url().required('A URL is required'),
@@ -16,7 +18,19 @@ const PLACEHOLDER_IMG = 'https://i.imgur.com/DiEdUYn.jpeg';
 
 const FormikPostUploader = () => {
     const [thumbnailUrl, setThumbnailUrl] = useState(PLACEHOLDER_IMG);
+    const [currentLoggedInUser, setCurrentLoggedInUser] = useState(null);
     const navigation = useNavigation();
+
+    const getUsername = () => {
+        const user = firebase.auth().currentUser;
+        const unsubscribe = db.collection('users').where('owner_uid', '==', user.uid).limit(1).onSnapshot(snapshot => snapshot.docs.map(doc => {
+            setCurrentLoggedInUser(doc.data().username);
+        }));
+    }
+
+    useEffect(() => {
+
+    }, []);
 
     return (
         <Formik
