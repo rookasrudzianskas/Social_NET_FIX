@@ -83,7 +83,7 @@ const Icon = () => (
 
 const Likes = ({post}) => (
     <View style={{marginTop: -10}}>
-        <Text style={{color: 'white', fontWeight: '600', marginLeft: 13}}>{post.likes.toLocaleString('en')} likes</Text>
+        <Text style={{color: 'white', fontWeight: '600', marginLeft: 13}}>{post.likes_by_users.length.toLocaleString('en')} likes</Text>
     </View>
 );
 
