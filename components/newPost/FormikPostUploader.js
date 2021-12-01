@@ -23,6 +23,7 @@ const FormikPostUploader = () => {
 
     const getUsername = () => {
         const user = firebase.auth().currentUser;
+        console.log(user);
         return db.collection('users').where('owner_uid', '==', user.uid).limit(1).onSnapshot(snapshot => snapshot.docs.map(doc => {
             setCurrentLoggedInUser({
                 username: doc.data().username,
@@ -37,6 +38,7 @@ const FormikPostUploader = () => {
     }, []);
 
     const uploadPostToFirebase = async (imageUrl, caption) => {
+        console.log(currentLoggedInUser);
          const unsub = await db.collection('users').doc(firebase.auth().currentUser.email).collection('posts').add({
             imageUrl: imageUrl,
             user: currentLoggedInUser.username,
