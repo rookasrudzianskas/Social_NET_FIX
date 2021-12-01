@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Text, View, StyleSheet, SafeAreaView, ScrollView, FlatList} from 'react-native';
 import Header from "../../components/home/Header";
 import Stories from "../../components/home/Stories";
@@ -10,7 +10,7 @@ import {db} from "../../firebase";
 // import { SafeAreaView } from 'react-native-safe-area-context';
 
 const HomeScreen = () => {
-    const [posts, setPosts] = React.useState([]);
+    const [posts, setPosts] = useState([]);
 
     useEffect(() => {
         db.collection('posts').onSnapshot(snapshot => {
