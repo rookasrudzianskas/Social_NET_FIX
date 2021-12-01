@@ -37,7 +37,7 @@ const FormikPostUploader = () => {
     }, []);
 
     const uploadPostToFirebase = async (imageUrl, caption) => {
-        return await db.collection('users').doc(firebase.auth().currentUser.email).collection('posts').add({
+         const unsub = await db.collection('users').doc(firebase.auth().currentUser.email).collection('posts').add({
             imageUrl: imageUrl,
             user: currentLoggedInUser.username,
             profile_picture: currentLoggedInUser.profile_picture,
@@ -48,6 +48,7 @@ const FormikPostUploader = () => {
             likes_by_users: [],
             comments: [],
         }).then(navigation.goBack());
+         return unsub;
     }
 
     return (
