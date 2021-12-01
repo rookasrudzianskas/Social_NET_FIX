@@ -6,6 +6,7 @@ import { FontAwesome5 } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 import Pressable from "react-native/Libraries/Components/Pressable/Pressable";
+import {firebase} from "../../firebase";
 
 //<AntDesign name="like2" size={24} color="black" />
 //<FontAwesome5 name="comment-alt" size={24} color="black" />
@@ -13,12 +14,23 @@ import Pressable from "react-native/Libraries/Components/Pressable/Pressable";
 //<MaterialIcons name="save-alt" size={24} color="black" />
 
 const Post = ({post}) => {
+
+    const handleLike = (post) => {
+        // console.log("Like");
+        const currentLikeStatus = !post.likes_by_users.includes(
+            firebase.auth().currentUser.email,
+        );
+
+
+
+    }
+
     return (
         <View style={{marginTop: 15}}>
             <Divider width={1} orientation={'vertical'} />
             <PostHeader post={post} />
             <PostImage post={post} />
-            <PostFooter post={post} />
+            <PostFooter post={post} handleLike={handleLike} />
         </View>
     );
 };
@@ -46,7 +58,7 @@ const PostImage = ({post}) => (
     </View>
 );
 
-const PostFooter = ({post}) => (
+const PostFooter = ({post, handleLike}) => (
     <Pressable style={{}}>
         <Icon />
         <Likes post={post} />
