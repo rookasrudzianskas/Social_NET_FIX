@@ -70,7 +70,7 @@ const PostImage = ({post}) => (
 const PostFooter = ({post, handleLike}) => (
     <Pressable style={{}}>
         <Icon />
-        <Likes post={post} />
+        <Likes post={post} handleLike={handleLike} />
         <View style={{marginHorizontal: 12,}}>
             <Caption post={post} />
             <View style={{marginTop: 5,}}>
@@ -81,11 +81,11 @@ const PostFooter = ({post, handleLike}) => (
     </Pressable>
 );
 
-const Icon = () => (
+const Icon = ({handleLike}) => (
         <View style={{flexDirection: 'row', justifyContent: 'space-between', margin: 10, alignItems: 'center'}}>
             <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                    <TouchableOpacity activeOpacity={0.5}>
-                <AntDesign name="like2" size={22} color="white" style={{margin: 5,}}/>
+                    <TouchableOpacity activeOpacity={0.5} onPress={handleLike}>
+                <AntDesign name="like2" size={22} color={handleLike ? 'red' : 'white'} style={{margin: 5,}}/>
                     </TouchableOpacity>
                     <TouchableOpacity activeOpacity={0.5}>
                 <FontAwesome5 name="comment-alt" size={22} color="white" style={{margin: 5,}}/>
