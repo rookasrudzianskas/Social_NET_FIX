@@ -1,6 +1,7 @@
 import React from 'react';
 import {Text, View, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import {useNavigation} from "@react-navigation/native";
+import {firebase} from "../../firebase";
 
 // Header ADD Icon >> https://img.icons8.com/fluency-systems-regular/60/ffffff/plus-2-math.png
 // Header Heart Icon >> https://img.icons8.com/fluency-systems-regular/60/ffffff/like--v1.png
@@ -11,7 +12,13 @@ const Header = () => {
 
     return (
         <View style={styles.container}>
-            <TouchableOpacity activeOpacity={0.5}>
+            <TouchableOpacity activeOpacity={0.5} onPress={() => {
+                firebase.auth().signOut().then(() => {
+                    navigation.navigate('Login');
+                }).catch(error => {
+                    console.log(error);
+                });
+            }}>
                 <Image style={styles.logo} source={{uri: 'https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png'}} />
             </TouchableOpacity>
 
