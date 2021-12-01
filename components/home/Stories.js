@@ -8,10 +8,10 @@ const Stories = () => {
             <ScrollView showsHorizontalScrollIndicator={false} horizontal >
                 {USERS.map((story, index) => {
                     return (
-                        <View key={index} style={{justifyContent: 'center', alignItems: 'center', marginHorizontal: 2, marginLeft: 6,
+                        <View key={index} style={{justifyContent: 'center', alignItems: 'center', marginHorizontal: 2, marginLeft: 18,
                         }}>
                             <Image style={styles.story} source={{ uri: story.image }} />
-                            <Text style={{color: 'white'}}>{story.user.length > 11 ? story.user.slice(0, 10).toLowerCase() + '...' : story.user.toLowerCase()}</Text>
+                            <Text style={{color: 'white'}}>{story.user.length > 11 ? story.user.slice(0, 6).toLowerCase() + '...' : story.user.toLowerCase()}</Text>
                         </View>
                     )
                 })}
