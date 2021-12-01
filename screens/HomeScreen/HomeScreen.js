@@ -18,6 +18,8 @@ const HomeScreen = () => {
         })
     }, []);
 
+    console.log("🔥", posts);
+
     return (
         <SafeAreaView style={styles.container}>
             <Header />
