@@ -41,7 +41,7 @@ const FormikPostUploader = () => {
         console.log(currentLoggedInUser);
          const unsub = await db.collection('users').doc(firebase.auth().currentUser.email).collection('posts').add({
             imageUrl: imageUrl,
-            username: currentLoggedInUser.username,
+            user: currentLoggedInUser.username,
             profile_picture: currentLoggedInUser.profile_picture,
             owner_uid: firebase.auth().currentUser.uid,
             caption: caption,
