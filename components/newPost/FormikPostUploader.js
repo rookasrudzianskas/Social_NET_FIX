@@ -23,22 +23,21 @@ const FormikPostUploader = () => {
 
     const getUsername = () => {
         const user = firebase.auth().currentUser;
-        const unsubscribe = db.collection('users').where('owner_uid', '==', user.uid).limit(1).onSnapshot(snapshot => snapshot.docs.map(doc => {
+        return db.collection('users').where('owner_uid', '==', user.uid).limit(1).onSnapshot(snapshot => snapshot.docs.map(doc => {
             setCurrentLoggedInUser({
                 username: doc.data().username,
                 profile_picture: doc.data().profile_picture,
             });
         }));
-        return unsubscribe;
-    }
+    };
 
     useEffect(() => {
         getUsername();
 
     }, []);
 
-    const uploadPostToFirebase = (imageUrl, caption) => {
-        return db.collection('users').doc(firebase.auth().currentUser.email).collection('posts').add({
+    const uploadPostToFirebase = async (imageUrl, caption) => {
+        return await db.collection('users').doc(firebase.auth().currentUser.email).collection('posts').add({
             imageUrl: imageUrl,
             user: currentLoggedInUser.username,
             profile_picture: currentLoggedInUser.profile_picture,
@@ -54,8 +53,9 @@ const FormikPostUploader = () => {
     return (
         <Formik
             initialValues={{caption: '', imageUrl: ''}}
-            onSubmit={(values) => {
-                console.log(values);
+            onSubmit={async (values) => {
+                // console.log(values);
+                await uploadPostToFirebase(values.imageUrl, values.caption);
                 Alert.alert('Success', 'Your post has been uploaded.');
                 navigation.goBack();
 
