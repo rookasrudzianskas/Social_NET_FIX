@@ -48,7 +48,7 @@ const FormikPostUploader = () => {
             likes: 0,
             likes_by_users: [],
             comments: [],
-        });
+        }).then(navigation.goBack());
     }
 
     return (
