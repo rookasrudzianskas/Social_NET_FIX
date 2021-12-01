@@ -5,12 +5,13 @@ import {StatusBar} from "expo-status-bar";
 import HomeScreen from "./screens/HomeScreen";
 import NewPostScreen from "./screens/NewPostScreen";
 import SignedInStack from "./navigation/navigation";
+import AuthNavigation from "./navigation/AuthNavigation";
 
 export default function App() {
   return (
     <View style={styles.container}>
       {/*<HomeScreen />*/}
-        <SignedInStack />
+        <AuthNavigation />
       {/*<StatusBar style="auto" />*/}
     </View>
   );
